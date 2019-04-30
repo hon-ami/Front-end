@@ -1,0 +1,35 @@
+.content {
+  &__text {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.7rem;
+    margin-bottom: 3rem;
+    line-height: 2.6rem;
+    font-weight: 300;
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  &-container {
+    padding-top: 11rem;
+    @media (min-width: 768px) {
+      padding-bottom: 11rem;
+    }
+
+    &__img {
+      width: 80%;
+      height: auto;
+      margin: 0 10%;
+      @media (min-width: 768px){
+        width: 100%;
+      }
+    }
+    &__textRight {
+      margin-top: 5rem;
+      @media (min-width: 768px) {
+        margin-top: 0;
+      }
+    }
+  }
+}

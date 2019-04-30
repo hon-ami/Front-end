@@ -1,0 +1,6 @@
+@import "../../../styles/styles.scss";
+
+.button {
+  position: relative;
+  @include link;
+}

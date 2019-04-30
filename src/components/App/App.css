@@ -1,0 +1,20 @@
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
+.App{
+    overflow:hidden;
+}
+
+.video {
+    padding-top: 11rem;
+    padding-bottom: 11rem;
+}

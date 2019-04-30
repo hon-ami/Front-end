@@ -1,0 +1,95 @@
+@import "../../../styles/styles.scss";
+
+.header {
+  &--fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 24px;
+
+    &-right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__title {
+      color: #FFFFFF;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight:bold;
+    }
+
+    &-nav {
+      width: 184px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &__text {
+        text-transform: capitalize;
+        color: #FFFFFF;
+        font-size: 10px;
+        margin-top: 7px;
+      }
+
+      &__number {
+        border: 1px solid #FFFFFF;
+        color: #FFFFFF;
+        border-radius: 50%;
+        font-size: 10px;
+        padding: 5px;
+        width: 27px;
+        text-align:center;
+        margin-bottom: 8px;
+        text-decoration: none;
+        cursor: pointer;
+
+        &__conclusion {
+          border: 1px solid #FFFFFF;
+          color: #030303;
+          padding: 5px;
+          text-decoration: none;
+          cursor: pointer;
+          border-radius: 50%;
+          font-size: 10px;
+        }
+      }
+
+      &__icon {
+        width: 11px;
+        height: 8px;
+      }
+    }
+
+    .isHidden {
+      display: none;
+    }
+
+    &__checked {
+      height: 12px;
+      width: 10px;
+    }
+
+    &__unlocked {
+      height: 8px;
+      width: 10px;
+    }
+  }
+}
+
+.activeRoute {
+  background-color: #FFFFFF;
+  color: #030303;
+}
