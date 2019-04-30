@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "animate.css": "^3.7.0",
+    "eatstreet": "^0.0.2",
     "mapbox-gl": "^0.54.0",
     "react": "^16.6.0",
     "react-animate-on-scroll": "^2.1.5",
