@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
-import ReactMapboxGl, { Layer, Feature, Source, GeoJSONLayer, Marker } from "react-mapbox-gl";
+import ReactMapboxGl, { Layer, Feature, } from "react-mapbox-gl";
 import data from '../../restau1.json';
-import EatStreet from 'eatstreet';
-
-import pin from '../../assets/map-marker-alt-solid.svg';
 
 const Map = ReactMapboxGl({
     accessToken: "pk.eyJ1IjoibWV0YWxtYW5pbmZyIiwiYSI6ImNqdjI5bzRsYjBxOXQ0ZXA5dmpsNDNkeGcifQ.luP93CEITntYfy6fZmCLOw"
 });
-
-const ES = new EatStreet("bcaacb4012b3e000");
-
 
 const layerPaint = {
   'heatmap-weight': {
@@ -56,22 +50,6 @@ class MapContainter extends Component {
   }
 
   async componentDidMount() {
-    // var params = {
-    //   address: "NY", // Street Address to Search
-    // }
-    //
-    //
-    // ES.SearchRestaurants(params, (err, res) => {
-    //   if(err){
-    //     return err;
-    //   }
-    //   console.log(res);
-    //   const restaurants = res['restaurants'];
-    //   console.log(restaurants);
-    //   this.setState({
-    //     restaurants,
-    //   });
-    // });
     this.setState({ restaurants: data });
   }
 
@@ -98,7 +76,7 @@ class MapContainter extends Component {
         <Layer type='heatmap' paint={layerPaint}>
           {this.state.restaurants.map((restaurant) => {
             return(
-            <Feature key={restaurant.longitude} coordinates={[ restaurant.long, restaurant.lat ]} />
+            <Feature key={restaurant.long} coordinates={[ restaurant.long, restaurant.lat ]} />
           )})}
         </Layer>
         </Map>
