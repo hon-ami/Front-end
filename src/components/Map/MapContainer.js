@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactMapboxGl, { Layer, Feature, Source, GeoJSONLayer, Marker } from "react-mapbox-gl";
+import data from '../../restau1.json';
 import EatStreet from 'eatstreet';
 
 import pin from '../../assets/map-marker-alt-solid.svg';
@@ -51,43 +52,57 @@ const layerPaint = {
 class MapContainter extends Component {
   state = {
     restaurants: [],
+    mapStyle: 'streets-v9',
   }
 
   async componentDidMount() {
-    var params = {
-      address: "NY", // Street Address to Search
-    }
-
-
-    ES.SearchRestaurants(params, (err, res) => {
-      if(err){
-        return err;
-      }
-      console.log(res);
-      const restaurants = res['restaurants'];
-      console.log(restaurants);
-      this.setState({
-        restaurants,
-      });
-    });
+    // var params = {
+    //   address: "NY", // Street Address to Search
+    // }
+    //
+    //
+    // ES.SearchRestaurants(params, (err, res) => {
+    //   if(err){
+    //     return err;
+    //   }
+    //   console.log(res);
+    //   const restaurants = res['restaurants'];
+    //   console.log(restaurants);
+    //   this.setState({
+    //     restaurants,
+    //   });
+    // });
+    this.setState({ restaurants: data });
   }
+
+  handleMapStyle = (mapStyle) => {
+    this.setState({ mapStyle });
+  }
+
+
   render () {
     console.log(this.state.restaurants);
     return (
-      <Map
-        style="mapbox://styles/mapbox/light-v10"
-        containerStyle={{
-          height: "100vh",
-          width: "100vw"
-        }}
-      >
-      <Layer type='heatmap' paint={layerPaint}>
-        {this.state.restaurants.map((restaurant) => {
-          return(
-          <Feature key={restaurant.longitude} coordinates={[ restaurant.longitude, restaurant.latitude ]} />
-        )})}
-      </Layer>
-      </Map>
+      <div>
+        <button onClick={() => this.handleMapStyle('streets-v9')}>Street</button>
+        <button onClick={() => this.handleMapStyle('light-v10')}>Light</button>
+        <button onClick={() => this.handleMapStyle('dark-v10')}>Dark</button>
+        <Map
+          style={`mapbox://styles/mapbox/${this.state.mapStyle}`}
+          containerStyle={{
+            height: "100vh",
+            width: "100vw"
+          }}
+          center={[-74.007766, 40.714625]}
+        >
+        <Layer type='heatmap' paint={layerPaint}>
+          {this.state.restaurants.map((restaurant) => {
+            return(
+            <Feature key={restaurant.longitude} coordinates={[ restaurant.long, restaurant.lat ]} />
+          )})}
+        </Layer>
+        </Map>
+      </div>
     )
   }
 }
