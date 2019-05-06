@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactMapboxGl, { Layer, Feature, } from "react-mapbox-gl";
+import LayerStyle from "./LayerStyle/LayerStyle";
 
 const Map = ReactMapboxGl({
     accessToken: "pk.eyJ1IjoibWV0YWxtYW5pbmZyIiwiYSI6ImNqdjI5bzRsYjBxOXQ0ZXA5dmpsNDNkeGcifQ.luP93CEITntYfy6fZmCLOw"
@@ -55,10 +56,7 @@ class MapContainter extends Component {
   render () {
     const { restaurants } = this.props;
     return (
-      <div>
-        <button onClick={() => this.handleMapStyle('streets-v9')}>Street</button>
-        <button onClick={() => this.handleMapStyle('light-v10')}>Light</button>
-        <button onClick={() => this.handleMapStyle('dark-v10')}>Dark</button>
+      <div style={{ position: 'absolute', height: '100vh', width: '100vw' }}>
         <Map
           style={`mapbox://styles/mapbox/${this.state.mapStyle}`}
           containerStyle={{
@@ -74,6 +72,9 @@ class MapContainter extends Component {
           )})}
         </Layer>
         </Map>
+        <LayerStyle
+          handleMapStyle={this.handleMapStyle}
+        />
       </div>
     )
   }

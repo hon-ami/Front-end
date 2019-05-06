@@ -10,7 +10,7 @@ class FormSelect extends Component {
 
   handleChange = (event) => {
     this.setState({ value: event.target.value });
-    this.props.getValue(event)
+    this.props.getValue(event);
   }
 
   render() {

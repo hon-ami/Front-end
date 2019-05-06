@@ -22,9 +22,9 @@ class MapPage extends Component {
         <Sidebar
           handleFilters={this.handleFilters}
         />
-        <MapContainer
+      {/*<MapContainer
           restaurants={this.state.value}
-        />
+        />*/}
       </Fragment>
     );
   }

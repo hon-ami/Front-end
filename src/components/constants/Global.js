@@ -1,4 +1,3 @@
-
 export const COUNTY = [
   { label: 'all', name: 'all' },
   { label: 'Bronx', name: 'Bronx' },
@@ -27,3 +26,16 @@ export const GRADE = [
   { label: 'C', name: 'C' },
   { label: 'D', name: 'D' },
 ];
+
+export const STYLES = [
+  { label: 'Street', value: 'streets-v9' },
+  { label: 'Light', value: 'light-v10' },
+  { label: 'Dark', value: 'dark-v10' },
+  { label: 'Outdoors', value: 'outdoors-v10' },
+  { label: 'satellite', value: 'satellite-v9' },
+  { label: 'satellite-streets', value: 'satellite-streets-v10' },
+  // { label: '', value: 'navigation-preview-day-v2' },
+  // { label: '', value: 'navigation-preview-night-v2' },
+  // { label: '', value: 'navigation-guidance-day-v2' },
+  // { label: '', value: 'navigation-guidance-night-v2' },
+]
