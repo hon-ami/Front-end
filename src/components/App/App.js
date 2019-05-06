@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LandingPage from '../LandingPage/LandingPage';
-import MapContainer from '../Map/MapContainer';
+import MapPage from '../Map/MapPage';
 
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
                 <Router>
                     <Switch>
                         <Route exact path='/' component={LandingPage}/>
-                        <Route path='/map' component={MapContainer}/>
+                        <Route path='/map' component={MapPage}/>
                     </Switch>
                 </Router>
             </div>

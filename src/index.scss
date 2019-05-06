@@ -1,3 +1,9 @@
+$primaryColor: #F0F0F0;
+$secondaryColor: #F9CE4B;
+$darkColor: #03003F;
+$lightColor: #343261;
+
+
 * {
   box-sizing: border-box;
   line-height: 1.5;
@@ -5,7 +11,15 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+input {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+select {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 body {

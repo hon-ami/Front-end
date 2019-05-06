@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ReactMapboxGl, { Layer, Feature, } from "react-mapbox-gl";
-import data from '../../restau1.json';
 
 const Map = ReactMapboxGl({
     accessToken: "pk.eyJ1IjoibWV0YWxtYW5pbmZyIiwiYSI6ImNqdjI5bzRsYjBxOXQ0ZXA5dmpsNDNkeGcifQ.luP93CEITntYfy6fZmCLOw"
@@ -45,12 +44,7 @@ const layerPaint = {
 
 class MapContainter extends Component {
   state = {
-    restaurants: [],
     mapStyle: 'streets-v9',
-  }
-
-  async componentDidMount() {
-    this.setState({ restaurants: data });
   }
 
   handleMapStyle = (mapStyle) => {
@@ -59,7 +53,7 @@ class MapContainter extends Component {
 
 
   render () {
-    console.log(this.state.restaurants);
+    const { restaurants } = this.props;
     return (
       <div>
         <button onClick={() => this.handleMapStyle('streets-v9')}>Street</button>
@@ -74,7 +68,7 @@ class MapContainter extends Component {
           center={[-74.007766, 40.714625]}
         >
         <Layer type='heatmap' paint={layerPaint}>
-          {this.state.restaurants.map((restaurant) => {
+          {restaurants.map((restaurant) => {
             return(
             <Feature key={restaurant.long} coordinates={[ restaurant.long, restaurant.lat ]} />
           )})}
