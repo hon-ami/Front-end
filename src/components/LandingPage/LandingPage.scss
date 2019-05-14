@@ -1,0 +1,56 @@
+@import "../../index.scss";
+
+
+.LandingPage {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 24rem 0;
+  background-image: url("../../assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(#03003F, .4);
+    z-index: 0;
+  }
+  &-title {
+    color: $secondaryColor;
+    font-weight: bold;
+    font-size: 4.5rem;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+  }
+  &-subtitle {
+    color: $primaryColor;
+    font-size: 2.8rem;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+  }
+  &-higlighted {
+    background: $darkColor;
+    position: relative;
+    z-index: 1;
+  }
+  &-start {
+    align-self: center;
+    position: relative;
+    z-index: 1;
+    &-link {
+      color: $primaryColor;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}

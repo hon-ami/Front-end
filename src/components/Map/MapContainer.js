@@ -55,6 +55,7 @@ class MapContainter extends Component {
 
   render () {
     const { restaurants } = this.props;
+    console.log(restaurants);
     return (
       <div style={{ position: 'absolute', height: '100vh', width: '100vw' }}>
         <Map
@@ -66,10 +67,9 @@ class MapContainter extends Component {
           center={[-74.007766, 40.714625]}
         >
         <Layer type='heatmap' paint={layerPaint}>
-          {restaurants.map((restaurant) => {
-            return(
+          {restaurants.map((restaurant) => (
             <Feature key={restaurant.long} coordinates={[ restaurant.long, restaurant.lat ]} />
-          )})}
+          ))}
         </Layer>
         </Map>
         <LayerStyle
