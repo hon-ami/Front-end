@@ -20,7 +20,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(#03003F, .4);
+    background: rgba(#03003F, .6);
     z-index: 0;
   }
   &-title {
@@ -51,6 +51,32 @@
       color: $primaryColor;
       position: relative;
       z-index: 1;
+    }
+    &-mouse {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: none;
+      height: 5rem;
+      width: 3rem;
+      border: .3rem solid $secondaryColor;
+      border-radius: 2rem;
+      &::after {
+        position: absolute;
+        content: "";
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        height: .5rem;
+        width: .5rem;
+        border-radius: 50%;
+        background: $secondaryColor;
+      }
+      &-container {
+        position: relative;
+        margin-top: 3rem;
+      }
     }
   }
 }

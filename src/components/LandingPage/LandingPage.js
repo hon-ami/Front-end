@@ -24,6 +24,9 @@ class LandingPage extends Component {
         </Row>
         <div className="LandingPage-start">
           <Link className="LandingPage-start-link" to='/map'>Start the Experience</Link>
+          <div className="LandingPage-start-mouse-container">
+            <div className="LandingPage-start-mouse"></div>
+          </div>
         </div>
         <Info />
       </Grid>
