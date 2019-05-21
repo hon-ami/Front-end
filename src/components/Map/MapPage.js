@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Sidebar from '../sidebar/sidebar';
+import SidebarContent from '../sidebar/SidebarContent';
 import MapContainer from '../Map/MapContainer';
 import data from '../../restau1.json';
 import Logo from '../shared/Logo/Logo'
@@ -8,7 +9,8 @@ import { COUNTY } from '../constants/Global';
 class MapPage extends Component {
   state = {
     value: [],
-    county: [-74.007766, 40.714625],
+    countyLngLat: [-74.007766, 40.714625],
+    county: 'all',
   }
 
   async componentDidMount() {
@@ -18,13 +20,13 @@ class MapPage extends Component {
   handleFilters = (value, county) => {
     COUNTY.forEach(borough => {
       if (borough.label === county) {
-        return this.setState({ county: [borough.lng, borough.lat]})
+        return this.setState({ countyLngLat: [borough.lng, borough.lat]})
       }
       if (county === "all") {
-        this.setState({ county: [-74.007766, 40.714625] })
+        this.setState({ countyLngLat: [-74.007766, 40.714625] })
       }
     });
-    this.setState({ value });
+    this.setState({ value, county });
   }
 
   render() {
@@ -36,8 +38,11 @@ class MapPage extends Component {
         />
         <MapContainer
           restaurants={this.state.value}
-          flyTo={this.state.county}
+          flyTo={this.state.countyLngLat}
         />
+      <SidebarContent
+        county={this.state.county}
+      />
       </Fragment>
     );
   }

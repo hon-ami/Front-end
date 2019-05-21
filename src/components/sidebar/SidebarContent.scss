@@ -1,0 +1,77 @@
+@import "../../index.scss";
+
+.SidebarContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: $lightColor;
+  height: 100vh;
+  width: 30vw;
+  z-index: 2;
+  transform: translateX(30vw);
+  transition: 1s ease;
+  &-open {
+    transform: translateX(0);
+    .SidebarContent-toggle {
+      &::before, &::after {
+        content: "";
+        background: $secondaryColor;
+        height: .5rem;
+        width: 3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        border-radius: 2rem;
+        clip-path: initial;
+      }
+      &::after {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+  }
+  &-toggle {
+    position: absolute;
+    top: 5rem;
+    left: -5rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background: $darkColor;
+    cursor: pointer;
+    &::before {
+      content: "";
+      background: $secondaryColor;
+      height: 3rem;
+      width: 3rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      clip-path: polygon(45% 0%, 45% 35%, 100% 35%, 100% 65%, 45% 65%, 45% 100%, 0% 50%);
+    }
+  }
+  &-open {
+    transform: translateX(0);
+    .SidebarContent-toggle {
+      &::before, &::after {
+        content: "";
+        background: $secondaryColor;
+        height: .5rem;
+        width: 3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        border-radius: 2rem;
+      }
+      &::after {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+  }
+  &-container {
+    padding: 5rem;
+    color: $primaryColor;
+  }
+}

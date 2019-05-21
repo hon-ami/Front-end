@@ -4,6 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import Logo from '../shared/Logo/Logo';
 import Info from './Info/Info';
 import './LandingPage.scss'
+import SidebarContent from '../sidebar/SidebarContent';
 
 class LandingPage extends Component {
   render() {
@@ -29,6 +30,7 @@ class LandingPage extends Component {
           </div>
         </div>
         <Info />
+        <SidebarContent />
       </Grid>
     )
   }
