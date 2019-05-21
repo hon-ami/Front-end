@@ -5,8 +5,9 @@
   &-container {
     position: absolute;
     width: 25%;
-    left: 8rem;
-    top: 66%;
+    min-width: 30rem;
+    left: 5rem;
+    top: 60vh;
     transform: translateY(-50%);
     padding: 3rem 5rem;
     border-radius: 1rem;

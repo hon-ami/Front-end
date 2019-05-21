@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactMapboxGl, { Layer, Feature, } from "react-mapbox-gl";
 import LayerStyle from "./LayerStyle/LayerStyle";
+import './Map.scss'
 
 const Map = ReactMapboxGl({
     accessToken: "pk.eyJ1IjoibWV0YWxtYW5pbmZyIiwiYSI6ImNqdjI5bzRsYjBxOXQ0ZXA5dmpsNDNkeGcifQ.luP93CEITntYfy6fZmCLOw"
@@ -52,9 +53,8 @@ class MapContainter extends Component {
     this.setState({ mapStyle });
   }
 
-
   render () {
-    const { restaurants } = this.props;
+    const { restaurants, flyTo } = this.props;
     console.log(restaurants);
     return (
       <div style={{ position: 'absolute', height: '100vh', width: '100vw' }}>
@@ -64,7 +64,9 @@ class MapContainter extends Component {
             height: "100vh",
             width: "100vw"
           }}
-          center={[-74.007766, 40.714625]}
+          center={flyTo}
+          onClick={(map, e) => console.log(e.lngLat)}
+          flyToOptions={{speed: 0.8}}
         >
         <Layer type='heatmap' paint={layerPaint}>
           {restaurants.map((restaurant) => (

@@ -24,7 +24,7 @@ class Sidebar extends Component {
     }).filter((restaurant) => {
       return grade !== 'any' ? restaurant.grades === grade: true
     })
-    this.props.handleFilters(filteredCounty)
+    this.props.handleFilters(filteredCounty, county)
     return filteredCounty
   }
 
