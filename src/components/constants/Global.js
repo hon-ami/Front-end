@@ -1,5 +1,5 @@
 export const COUNTY = [
-  { label: 'all', name: 'all' },
+  { label: 'all', name: 'all', lng: -74.007766, lat: 40.714625 },
   { label: 'Bronx', name: 'Bronx', lng: -73.87286850040844, lat: 40.854789201175976 },
   { label: 'Brooklyn', name: 'Brooklyn', lat: 40.651119784556755 , lng: -73.95467323847986},
   { label: 'Queens', name: 'Queens', lat: 40.72421980099898,  lng: -73.81341677262306 },

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from "react-redux";
 import Sidebar from '../sidebar/sidebar';
 import SidebarContent from '../sidebar/SidebarContent';
 import MapContainer from '../Map/MapContainer';
@@ -7,10 +8,12 @@ import Logo from '../shared/Logo/Logo'
 import { COUNTY } from '../constants/Global';
 
 class MapPage extends Component {
-  state = {
-    value: [],
-    countyLngLat: [-74.007766, 40.714625],
-    county: 'all',
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: [],
+      county: 'all' || this.props.county,
+    }
   }
 
   async componentDidMount() {
@@ -30,6 +33,7 @@ class MapPage extends Component {
   }
 
   render() {
+    const { county, countyLngLat } = this.props;
     return (
       <Fragment>
         <Logo />
@@ -38,15 +42,26 @@ class MapPage extends Component {
         />
         <MapContainer
           restaurants={this.state.value}
-          flyTo={this.state.countyLngLat}
+          flyTo={countyLngLat}
         />
-      <SidebarContent
-        county={this.state.county}
-      />
+        <SidebarContent />
       </Fragment>
     );
   }
 };
 
+const mapStateToProps = (state) => {
+  return {
+    county: state.map.county,
+  }
+};
 
-export default MapPage;
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getMapData: county => dispatch(getMapData(county)),
+//   }
+// };
+
+
+export default connect(mapStateToProps, null)(MapPage);
+// mapStateToProps // mapDispatchToProps

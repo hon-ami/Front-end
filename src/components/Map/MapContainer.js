@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from "react-redux";
 import ReactMapboxGl, { Layer, Feature, } from "react-mapbox-gl";
 import LayerStyle from "./LayerStyle/LayerStyle";
 import './Map.scss'
@@ -54,7 +55,7 @@ class MapContainter extends Component {
   }
 
   render () {
-    const { restaurants, flyTo } = this.props;
+    const { restaurants, countyLngLat } = this.props;
     console.log(restaurants);
     return (
       <div style={{ position: 'absolute', height: '100vh', width: '100vw' }}>
@@ -64,9 +65,8 @@ class MapContainter extends Component {
             height: "100vh",
             width: "100vw"
           }}
-          center={flyTo}
+          center={countyLngLat}
           onClick={(map, e) => console.log(e.lngLat)}
-          flyToOptions={{speed: 0.8}}
         >
         <Layer type='heatmap' paint={layerPaint}>
           {restaurants.map((restaurant) => (
@@ -82,4 +82,12 @@ class MapContainter extends Component {
   }
 }
 
-export default MapContainter;
+const mapStateToProps = (state) => {
+  return {
+    county: state.map.county,
+    countyLngLat: state.map.countyLngLat,
+  }
+};
+
+export default connect(mapStateToProps, null)(MapContainter);
+// mapStateToProps // mapDispatchToProps

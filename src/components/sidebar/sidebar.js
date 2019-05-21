@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { getMapCounty } from '../../redux/actions/map';
 import FormSelect from '../shared/inputs/Inputs';
 import { COUNTY, FOODTYPE, GRADE } from '../constants/Global';
 import data from '../../restau1.json';
@@ -24,7 +26,8 @@ class Sidebar extends Component {
     }).filter((restaurant) => {
       return grade !== 'any' ? restaurant.grades === grade: true
     })
-    this.props.handleFilters(filteredCounty, county)
+    this.props.handleFilters(filteredCounty, county);
+    this.props.getMapCounty(county);
     return filteredCounty
   }
 
@@ -60,5 +63,11 @@ class Sidebar extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getMapCounty: county => dispatch(getMapCounty(county))
+  }
+};
 
-export default Sidebar
+export default connect(null, mapDispatchToProps)(Sidebar);
+// mapStateToProps
