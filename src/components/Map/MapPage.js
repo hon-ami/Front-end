@@ -8,12 +8,8 @@ import Logo from '../shared/Logo/Logo'
 import { COUNTY } from '../constants/Global';
 
 class MapPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: [],
-      county: 'all' || this.props.county,
-    }
+  state = {
+    value: [],
   }
 
   async componentDidMount() {
@@ -33,7 +29,7 @@ class MapPage extends Component {
   }
 
   render() {
-    const { county, countyLngLat } = this.props;
+    const { countyLngLat } = this.props;
     return (
       <Fragment>
         <Logo />

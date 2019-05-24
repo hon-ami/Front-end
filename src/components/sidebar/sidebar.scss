@@ -1,15 +1,16 @@
-@import '../../../index.scss';
+@import '../../index.scss';
 
 .Select {
   margin: 3rem 0;
   &-container {
     position: absolute;
-    width: 25%;
+    width: 20%;
     min-width: 30rem;
     left: 5rem;
-    top: 60vh;
-    transform: translateY(-50%);
-    padding: 3rem 5rem;
+    // top: 50%;
+    // transform: translateY(-50%);
+    bottom: 5%;
+    padding: 0.5rem 3rem;
     border-radius: 1rem;
     background: $darkColor;
     z-index: 1;
@@ -20,12 +21,11 @@
     font-size: 2.3rem;
   }
   &-input {
-    font-size: 2.6rem;
-    font-weight: bold;
+    font-size: 2rem;
     color: $secondaryColor;
     height: 6rem;
     width: 100%;
-    margin: 1rem 0;
+    margin: .5rem 0;
     text-indent: 2rem;
     outline: none;
     border: none;

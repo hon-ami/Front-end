@@ -16,7 +16,7 @@ export const FOODTYPE = [
   { label: 'French', name: 'French' },
   { label: 'Italian', name: 'Italian' },
   { label: 'Continental', name: 'Continental' },
-  { label: 'Ice Cream', name: 'Ice Cream' },
+  // { label: 'Ice Cream', name: 'Ice Cream' },
 ];
 
 export const GRADE = [
@@ -31,11 +31,11 @@ export const STYLES = [
   { label: 'Street', value: 'streets-v9' },
   { label: 'Light', value: 'light-v10' },
   { label: 'Dark', value: 'dark-v10' },
-  { label: 'Outdoors', value: 'outdoors-v10' },
+  // { label: 'Outdoors', value: 'outdoors-v10' },
   { label: 'satellite', value: 'satellite-v9' },
-  { label: 'satellite-streets', value: 'satellite-streets-v10' },
-  { label: 'preview-day', value: 'navigation-preview-day-v2' },
-  { label: 'preview-night', value: 'navigation-preview-night-v2' },
+  // { label: 'satellite-streets', value: 'satellite-streets-v10' },
+  // { label: 'preview-day', value: 'navigation-preview-day-v2' },
+  // { label: 'preview-night', value: 'navigation-preview-night-v2' },
   // { label: '', value: 'navigation-guidance-day-v2' },
   // { label: '', value: 'navigation-guidance-night-v2' },
 ]

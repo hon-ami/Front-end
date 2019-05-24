@@ -4,6 +4,7 @@ import { getMapCounty } from '../../redux/actions/map';
 import FormSelect from '../shared/inputs/Inputs';
 import { COUNTY, FOODTYPE, GRADE } from '../constants/Global';
 import data from '../../restau1.json';
+import './sidebar.scss';
 
 class Sidebar extends Component {
   state = {
