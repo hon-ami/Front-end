@@ -4,7 +4,7 @@ import './Info.scss';
 
 class Info extends Component {
   state = {
-    open: true,
+    open: false,
   }
 
   handleModal = () => {
