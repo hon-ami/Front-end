@@ -22,7 +22,7 @@ const LandingPage = () => (
     </Row>
     <div className="LandingPage-start">
       <Link className="LandingPage-start-link" to='/map'>
-        Click to start the Experience
+        Start the Experience
         <div className="LandingPage-start-mouse-container">
           <div className="LandingPage-start-mouse"></div>
         </div>
