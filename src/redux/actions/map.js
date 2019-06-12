@@ -8,3 +8,12 @@ export function getMapCounty(county) {
     },
   };
 }
+
+export function isMapLoading(bool) {
+  return {
+    type: actions.GET_MAP_LOADER,
+    payload: {
+      bool,
+    }
+  }
+}

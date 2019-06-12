@@ -3,7 +3,8 @@ import { COUNTY } from '../../components/constants/Global';
 
 const initialState = {
   county: 'all',
-  countyLngLat: [-74.007766, 40.714625],
+  countyLngLat: [-73.9308331544632, 40.7264313800971],
+  isMapLoading: true,
 }
 
 export default function map(state = initialState, action) {
@@ -15,6 +16,11 @@ export default function map(state = initialState, action) {
         county: action.payload.county,
         countyLngLat: lngLat[0],
       });
+    }
+    case actions.GET_MAP_LOADER: {
+      return Object.assign({}, state, {
+        isMapLoading: action.payload.bool,
+      })
     }
     default:
       return state;

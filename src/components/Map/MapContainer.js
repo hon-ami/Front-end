@@ -55,7 +55,7 @@ class MapContainter extends Component {
   }
 
   render () {
-    const { restaurants, countyLngLat } = this.props;
+    const { restaurants, countyLngLat, loaded } = this.props;
     console.log(restaurants);
     return (
       <div style={{ position: 'absolute', height: '100vh', width: '100vw' }}>
@@ -67,6 +67,7 @@ class MapContainter extends Component {
           }}
           center={countyLngLat}
           onClick={(map, e) => console.log(e.lngLat)}
+          onStyleLoad={(map, loadEvent) => loadEvent ? loaded(false) : null}
         >
         <Layer type='heatmap' paint={layerPaint}>
           {restaurants.map((restaurant) => (
@@ -86,6 +87,7 @@ const mapStateToProps = (state) => {
   return {
     county: state.map.county,
     countyLngLat: state.map.countyLngLat,
+    isLoading: state.map.isLoading,
   }
 };
 

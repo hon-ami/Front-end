@@ -3,14 +3,16 @@ import { connect } from "react-redux";
 import Sidebar from '../sidebar/sidebar';
 import SidebarContent from '../sidebar/SidebarContent';
 import MapContainer from '../Map/MapContainer';
-import data from '../../restau1.json';
 import Logo from '../shared/Logo/Logo'
 import { COUNTY } from '../constants/Global';
 import { getRestaurants } from '../../redux/actions/api';
+import { isMapLoading } from '../../redux/actions/map';
+import Loader from '../shared/Loader/Loader';
 
 class MapPage extends Component {
   componentWillMount() {
     this.props.getRestaurants();
+    this.props.isMapLoading(true);
   }
 
   handleFilters = (county) => {
@@ -26,16 +28,23 @@ class MapPage extends Component {
   }
 
   render() {
-    const { countyLngLat } = this.props;
+    const { countyLngLat, isLoading } = this.props;
+    console.log(isLoading);
     return (
       <Fragment>
         <Logo />
+        {!isLoading && (
         <Sidebar
           handleFilters={this.handleFilters}
         />
+        )}
+        {isLoading && (
+          <Loader />
+        )}
         <MapContainer
           restaurants={this.props.restaurants}
           flyTo={countyLngLat}
+          loaded={bool => this.props.isMapLoading(bool)}
         />
         <SidebarContent />
       </Fragment>
@@ -46,13 +55,15 @@ class MapPage extends Component {
 const mapStateToProps = (state) => {
   return {
     county: state.map.county,
-    restaurants: state.api.restaurants
+    restaurants: state.api.restaurants,
+    isLoading: state.map.isMapLoading,
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getRestaurants: () => dispatch(getRestaurants()),
+    isMapLoading: bool => dispatch(isMapLoading(bool))
   }
 };
 

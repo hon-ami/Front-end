@@ -1,5 +1,5 @@
 export const COUNTY = [
-  { label: 'all', name: 'all', lng: -74.007766, lat: 40.714625 },
+  { label: 'all', name: 'all', lng: -73.9308331544632, lat: 40.7264313800971 },
   { label: 'Bronx', name: 'Bronx', lng: -73.87286850040844, lat: 40.854789201175976 },
   { label: 'Brooklyn', name: 'Brooklyn', lat: 40.651119784556755 , lng: -73.95467323847986},
   { label: 'Queens', name: 'Queens', lat: 40.72421980099898,  lng: -73.81341677262306 },
@@ -16,6 +16,7 @@ export const FOODTYPE = [
   { label: 'French', name: 'French' },
   { label: 'Italian', name: 'Italian' },
   { label: 'Continental', name: 'Continental' },
+  { label: 'Chinese', name: 'Chinese' }
   // { label: 'Ice Cream', name: 'Ice Cream' },
 ];
 
@@ -24,7 +25,6 @@ export const GRADE = [
   { label: 'A', name: 'A' },
   { label: 'B', name: 'B' },
   { label: 'C', name: 'C' },
-  { label: 'D', name: 'D' },
 ];
 
 export const STYLES = [
