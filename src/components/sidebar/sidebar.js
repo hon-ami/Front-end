@@ -1,33 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getMapCounty } from '../../redux/actions/map';
+import { filterRestaurants } from '../../redux/actions/api';
 import FormSelect from '../shared/inputs/Inputs';
 import { COUNTY, FOODTYPE, GRADE } from '../constants/Global';
-import data from '../../restau1.json';
 import './sidebar.scss';
 
 class Sidebar extends Component {
   state = {
-    restaurants: [],
     county: COUNTY[0].name,
     foodType: FOODTYPE[0].name,
     grade: GRADE[0].name,
   }
 
-  async componentDidMount() {
-    this.setState({ restaurants: data });
-  }
-
   filterRestaurantsBySelect = () => {
-    const { restaurants, county, foodType, grade } = this.state;
-    const filteredCounty = restaurants.filter((restaurant) => {
+    const { county, foodType, grade } = this.state;
+    const { apiRestaurants } = this.props;
+    const filteredCounty = apiRestaurants.filter((restaurant) => {
       return county !== 'all' ? restaurant.borough === county : true;
     }).filter((restaurant) => {
       return foodType !== 'any' ? restaurant.cuisine === foodType : true;
     }).filter((restaurant) => {
       return grade !== 'any' ? restaurant.grades === grade: true
     })
-    this.props.handleFilters(filteredCounty, county);
+    this.props.handleFilters(county);
+    this.props.filterRestaurants(filteredCounty)
     this.props.getMapCounty(county);
     return filteredCounty
   }
@@ -64,11 +61,18 @@ class Sidebar extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    apiRestaurants: state.api.apiRestaurants,
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    getMapCounty: county => dispatch(getMapCounty(county))
+    getMapCounty: county => dispatch(getMapCounty(county)),
+    filterRestaurants: data => dispatch(filterRestaurants(data)),
   }
 };
 
-export default connect(null, mapDispatchToProps)(Sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
 // mapStateToProps

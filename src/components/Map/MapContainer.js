@@ -70,7 +70,7 @@ class MapContainter extends Component {
         >
         <Layer type='heatmap' paint={layerPaint}>
           {restaurants.map((restaurant) => (
-            <Feature key={restaurant.long} coordinates={[ restaurant.long, restaurant.lat ]} />
+            <Feature key={restaurant.longi} coordinates={[ restaurant.longi, restaurant.lat ]} />
           ))}
         </Layer>
         </Map>

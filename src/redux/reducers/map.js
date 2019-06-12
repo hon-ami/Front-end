@@ -11,7 +11,6 @@ export default function map(state = initialState, action) {
     case actions.GET_MAP_COUNTY: {
       const lngLat = COUNTY.filter(borough => {return (borough.label === action.payload.county)})
       .map(lngLat => { return [lngLat.lng, lngLat.lat]; });
-      console.log(lngLat);
       return Object.assign({}, state, {
         county: action.payload.county,
         countyLngLat: lngLat[0],

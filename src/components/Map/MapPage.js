@@ -6,17 +6,14 @@ import MapContainer from '../Map/MapContainer';
 import data from '../../restau1.json';
 import Logo from '../shared/Logo/Logo'
 import { COUNTY } from '../constants/Global';
+import { getRestaurants } from '../../redux/actions/api';
 
 class MapPage extends Component {
-  state = {
-    value: [],
+  componentWillMount() {
+    this.props.getRestaurants();
   }
 
-  async componentDidMount() {
-    this.setState({ value: data });
-  }
-
-  handleFilters = (value, county) => {
+  handleFilters = (county) => {
     COUNTY.forEach(borough => {
       if (borough.label === county) {
         return this.setState({ countyLngLat: [borough.lng, borough.lat]})
@@ -25,7 +22,7 @@ class MapPage extends Component {
         this.setState({ countyLngLat: [-74.007766, 40.714625] })
       }
     });
-    this.setState({ value, county });
+    this.setState({ county });
   }
 
   render() {
@@ -37,7 +34,7 @@ class MapPage extends Component {
           handleFilters={this.handleFilters}
         />
         <MapContainer
-          restaurants={this.state.value}
+          restaurants={this.props.restaurants}
           flyTo={countyLngLat}
         />
         <SidebarContent />
@@ -49,15 +46,15 @@ class MapPage extends Component {
 const mapStateToProps = (state) => {
   return {
     county: state.map.county,
+    restaurants: state.api.restaurants
   }
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getMapData: county => dispatch(getMapData(county)),
-//   }
-// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getRestaurants: () => dispatch(getRestaurants()),
+  }
+};
 
 
-export default connect(mapStateToProps, null)(MapPage);
-// mapStateToProps // mapDispatchToProps
+export default connect(mapStateToProps, mapDispatchToProps)(MapPage);
