@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getMapCounty } from '../../redux/actions/map';
-import { filterRestaurants } from '../../redux/actions/api';
+import { filterRestaurants, getBorough, filterBorough } from '../../redux/actions/api';
 import FormSelect from '../shared/inputs/Inputs';
 import { COUNTY, FOODTYPE, GRADE } from '../constants/Global';
 import './sidebar.scss';
@@ -11,6 +11,12 @@ class Sidebar extends Component {
     county: COUNTY[0].name,
     foodType: FOODTYPE[0].name,
     grade: GRADE[0].name,
+  }
+
+  componentDidMount() {
+    this.props.getBorough().then(() => {
+      this.props.filterBorough(this.props.borough.filter(boroughs => boroughs.borough_title === 'New York')[0]);
+    });
   }
 
   filterRestaurantsBySelect = () => {
@@ -26,6 +32,8 @@ class Sidebar extends Component {
     this.props.handleFilters(county);
     this.props.filterRestaurants(filteredCounty)
     this.props.getMapCounty(county);
+    const County = county === 'all' ? 'New York' : county;
+    this.props.filterBorough(this.props.borough.filter(boroughs => boroughs.borough_title === County)[0]);
     return filteredCounty
   }
 
@@ -64,6 +72,7 @@ class Sidebar extends Component {
 const mapStateToProps = (state) => {
   return {
     apiRestaurants: state.api.apiRestaurants,
+    borough: state.api.borough,
   }
 }
 
@@ -71,6 +80,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getMapCounty: county => dispatch(getMapCounty(county)),
     filterRestaurants: data => dispatch(filterRestaurants(data)),
+    getBorough: () => dispatch(getBorough()),
+    filterBorough: data => dispatch(filterBorough(data)),
   }
 };
 

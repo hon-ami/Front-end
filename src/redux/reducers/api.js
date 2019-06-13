@@ -3,6 +3,8 @@ import * as actions from '../actionTypes';
 const initialState = {
     apiRestaurants: [],
     restaurants: [],
+    borough: [],
+    filteredBorough: null,
 }
 
 export default function api(state = initialState, action) {
@@ -21,6 +23,22 @@ export default function api(state = initialState, action) {
     }
     case actions.GET_RESTAURANTS_FAIL: {
       return state;
+    }
+    case actions.GET_BOROUGH: {
+      return Object.assign({}, state, {
+        isLoading: true,
+      });
+    }
+    case actions.GET_BOROUGH_SUCCESS: {
+      return Object.assign({}, state, {
+        isLoading: false,
+        borough: action.payload.data,
+      });
+    }
+    case actions.FILTER_BOROUGH: {
+      return Object.assign({}, state, {
+        filteredBorough: action.payload.data,
+      })
     }
     case actions.FILTER_RESTAURANTS: {
       return Object.assign({}, state, {

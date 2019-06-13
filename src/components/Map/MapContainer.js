@@ -56,7 +56,6 @@ class MapContainter extends Component {
 
   render () {
     const { restaurants, countyLngLat, loaded } = this.props;
-    console.log(restaurants);
     return (
       <div style={{ position: 'absolute', height: '100vh', width: '100vw' }}>
         <Map
@@ -66,7 +65,6 @@ class MapContainter extends Component {
             width: "100vw"
           }}
           center={countyLngLat}
-          onClick={(map, e) => console.log(e.lngLat)}
           onStyleLoad={(map, loadEvent) => loadEvent ? loaded(false) : null}
         >
         <Layer type='heatmap' paint={layerPaint}>

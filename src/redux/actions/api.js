@@ -12,6 +12,26 @@ export function getRestaurants() {
   };
 }
 
+export function getBorough() {
+  return {
+    type: actions.GET_BOROUGH,
+    payload: {
+      request: {
+        url: '/restaurant/borough',
+      },
+    },
+  };
+}
+
+export function filterBorough(data) {
+  return {
+    type: actions.FILTER_BOROUGH,
+    payload: {
+      data
+    }
+  }
+}
+
 
 export function filterRestaurants(data) {
   return {

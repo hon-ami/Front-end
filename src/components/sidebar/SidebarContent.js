@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Grid, Row } from 'react-flexbox-grid';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 import './SidebarContent.scss'
 
 class SidebarContent extends Component {
@@ -13,14 +13,24 @@ class SidebarContent extends Component {
   }
 
   render() {
-    const { county } = this.props;
+    const { borough } = this.props;
     const { open } = this.state;
+    if (!borough) {return null}
     return (
       <div className={`SidebarContent ${open && ('SidebarContent-open')}`}>
         <div className="SidebarContent-toggle" onClick={this.handleModal} />
         <Grid className="SidebarContent-container">
-          <Row>
-            {county}
+          <Row center='xs'>
+            <Col>
+              <h2 style={{ marginBottom: '2rem'}}>
+                {borough.borough_title}
+              </h2>
+            </Col>
+            <Col>
+              <p>
+                {borough.borough_content}
+              </p>
+            </Col>
           </Row>
         </Grid>
       </div>
@@ -30,7 +40,7 @@ class SidebarContent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    county: state.map.county,
+    borough: state.api.filteredBorough,
   }
 };
 

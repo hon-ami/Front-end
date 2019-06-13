@@ -16,18 +16,17 @@ const LandingPage = () => (
         <p className="LandingPage-subtitle">
           This website shows you all the different restaurants in the state of &nbsp;
           <span className="LandingPage-higlighted">New York.</span>&nbsp;
-          Lorem ipsum lorem ipsum lorem ipsum.
         </p>
       </Col>
     </Row>
-    <div className="LandingPage-start">
-      <Link className="LandingPage-start-link" to='/map'>
+    <Link className="LandingPage-start" to='/map'>
+      <div className="LandingPage-start-link">
         Start the Experience
         <div className="LandingPage-start-mouse-container">
           <div className="LandingPage-start-mouse"></div>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
     <Info />
   </Grid>
 )

@@ -29,7 +29,6 @@ class MapPage extends Component {
 
   render() {
     const { countyLngLat, isLoading } = this.props;
-    console.log(isLoading);
     return (
       <Fragment>
         <Logo />
@@ -63,7 +62,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getRestaurants: () => dispatch(getRestaurants()),
-    isMapLoading: bool => dispatch(isMapLoading(bool))
+    isMapLoading: bool => dispatch(isMapLoading(bool)),
   }
 };
 
