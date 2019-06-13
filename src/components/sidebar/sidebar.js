@@ -60,7 +60,7 @@ class Sidebar extends Component {
         />
         <FormSelect
           name={'grade'}
-          label={'Grade:'}
+          label={'Sanitation grade:'}
           options={GRADE}
           getValue={(e) => this.getValue(e)}
         />

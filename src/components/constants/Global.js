@@ -9,30 +9,33 @@ export const COUNTY = [
 
 export const FOODTYPE = [
   { label: 'any', name: 'any' },
-  { label: 'Bakery', name: 'Bakery' },
-  { label: 'Hamburgers', name: 'Hamburgers' },
-  { label: 'Irish', name: 'Irish' },
-  { label: 'American', name: 'American' },
   { label: 'French', name: 'French' },
   { label: 'Italian', name: 'Italian' },
+  { label: 'Chinese', name: 'Chinese' },
+  { label: 'Mexican', name: 'Mexican' },
+  { label: 'Indian', name: 'Indian' },
+  { label: 'Japanese', name: 'Japanese' },
+  { label: 'Hamburgers', name: 'Hamburgers' },
   { label: 'Continental', name: 'Continental' },
-  { label: 'Chinese', name: 'Chinese' }
+  // { label: 'Bakery', name: 'Bakery' },
+  // { label: 'Irish', name: 'Irish' },
+  // { label: 'American', name: 'American' },
   // { label: 'Ice Cream', name: 'Ice Cream' },
 ];
 
 export const GRADE = [
   { label: 'any', name: 'any'},
-  { label: 'A', name: 'A' },
-  { label: 'B', name: 'B' },
-  { label: 'C', name: 'C' },
+  { label: 'Very good', name: 'A' },
+  { label: 'Good', name: 'B' },
+  { label: 'Bad', name: 'C' },
 ];
 
 export const STYLES = [
   { label: 'Street', value: 'streets-v9' },
   { label: 'Light', value: 'light-v10' },
   { label: 'Dark', value: 'dark-v10' },
-  // { label: 'Outdoors', value: 'outdoors-v10' },
   { label: 'satellite', value: 'satellite-v9' },
+  // { label: 'Outdoors', value: 'outdoors-v10' },
   // { label: 'satellite-streets', value: 'satellite-streets-v10' },
   // { label: 'preview-day', value: 'navigation-preview-day-v2' },
   // { label: 'preview-night', value: 'navigation-preview-night-v2' },
